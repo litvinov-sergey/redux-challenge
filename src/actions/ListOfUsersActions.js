@@ -30,7 +30,11 @@ export function changeSort (currentSortType, currentSortDirection, selectedUsers
 
   currentSortDirection = !currentSortDirection;
 
-  selectedUsers.sort( 
+  let sortUsers = [...selectedUsers]
+
+  console.log('sortUsers', sortUsers)
+
+  sortUsers.sort( 
     (a, b) => {
 
       let c, d
@@ -66,12 +70,12 @@ export function changeSort (currentSortType, currentSortDirection, selectedUsers
 
     dispatch({
       type: CHANGE_SELECTED_USERS,
-      payload: selectedUsers
+      payload: sortUsers
     }) 
 
     dispatch({
       type: CHANGE_ACTIVE_USER,
-      payload: selectedUsers[0].id
+      payload: sortUsers[0].id
     })             
   }    
 } 
@@ -124,10 +128,9 @@ export function changeSearchbar(listOfUsers, searchQuery) {
       selectedUsers.push(item);
     }
   });
-  if (userIndex == -1) {userIndex = 0}
-  // userIndex == -1 ? 0 : userIndex  
 
-  console.log('selectedUsers1 =', selectedUsers)
+  userIndex == -1 ? 0 : userIndex  
+
 
   return (dispatch) => {
     

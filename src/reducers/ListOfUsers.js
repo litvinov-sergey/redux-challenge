@@ -20,7 +20,7 @@ const initialState = {
   currentSortDirection: false
 }
 
-export default function ActiveUser(state = initialState, action) {
+export default function listOfUsers(state = initialState, action) {
    // Аргумент action - стандартные аргументы redux reducer'а. 
    // С ним можно обрабатывать различные действия по их типу, попадая в нужный case
 
@@ -35,9 +35,6 @@ export default function ActiveUser(state = initialState, action) {
     case LOAD_JSON_ERROR:
       return {...state, error: action.payload}
 
-    case CHANGE_ACTIVE_USER:
-      return {...state, userIndex: action.payload}
-
     case CHANGE_SEARCHBAR:
       return {...state, searchQuery: action.payload}
 
@@ -46,9 +43,12 @@ export default function ActiveUser(state = initialState, action) {
     
     case CHANGE_SORT_DIRECTION:
       return {...state, currentSortDirection: action.payload}
-    
+
     case CHANGE_SELECTED_USERS:
       return {...state, selectedUsers: action.payload} 
+    
+    case CHANGE_ACTIVE_USER:
+      return {...state, userIndex: action.payload}
 
     case ADD_USER:
       return {...state, listOfUsers: action.payload}

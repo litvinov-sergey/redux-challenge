@@ -4,6 +4,7 @@ export default class ActiveUser extends Component {
 
   render() {
     const {user} = this.props
+    // console.log('ActiveUser', this.props)
 
     return (
       <aside className='user-detail'>
