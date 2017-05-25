@@ -129,6 +129,8 @@ export function changeSearchbar(listOfUsers, searchQuery) {
     }
   });
 
+  console.log('selectedUsers = ', selectedUsers)
+
   userIndex == -1 ? 0 : userIndex  
 
 

@@ -6,12 +6,12 @@ export default class ActiveUser extends Component {
     const {user} = this.props
     // console.log('ActiveUser', this.props)
 
+    if (!user) {return <aside className='user-detail'>Sorry, there is no such users.</aside>}
+
     return (
       <aside className='user-detail'>
         {
-          user.image ? 
             <img className='user-detail__image' src={`images/${user.image}.svg`} />
-            : ''
         }
         <h2 className='user-detail__name'> {user.name} </h2>
         <table className='user-detail__table'>
@@ -39,5 +39,5 @@ export default class ActiveUser extends Component {
 }
 
 ActiveUser.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object
 };

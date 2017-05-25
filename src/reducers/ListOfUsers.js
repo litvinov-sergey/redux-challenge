@@ -20,6 +20,8 @@ const initialState = {
   currentSortDirection: false
 }
 
+// ...sort = () => {}
+
 export default function listOfUsers(state = initialState, action) {
    // Аргумент action - стандартные аргументы redux reducer'а. 
    // С ним можно обрабатывать различные действия по их типу, попадая в нужный case
@@ -39,6 +41,7 @@ export default function listOfUsers(state = initialState, action) {
       return {...state, searchQuery: action.payload}
 
     case CHANGE_SORT_TYPE:
+      // sort()
       return {...state, currentSortType: action.payload}
     
     case CHANGE_SORT_DIRECTION:
